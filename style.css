@@ -1,0 +1,536 @@
+/* =====================================================
+   FONTS
+===================================================== */
+
+/* Agrandir (commercial) – placeholder with fallback */
+@font-face {
+  font-family: 'Agrandir';
+  src: local('Agrandir');
+  font-weight: 700;
+}
+
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+
+:root {
+  --bg: #050505;
+  --panel: #0b0b0b;
+  --gold: #d6b46a;
+  --white: #eaeaea;
+  --muted: #9a9a9a;
+  --radius-lg: 22px;
+  --radius-md: 18px;
+}
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* critical: no sideways scroll */
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Agrandir', system-ui, sans-serif;
+}
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+/* GLOBAL H1 – FINAL FIX */
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--gold);
+  font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: 3px;
+  line-height: 1.15;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* SECTION HEADINGS */
+h2 {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--gold);
+  font-size: clamp(28px, 4.5vw, 44px);
+  letter-spacing: 4px;
+}
+
+h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--gold);
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--white);
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(14px);
+  z-index: 1000;
+}
+
+/* Logo optical centering */
+.logo {
+  text-align: center;
+  line-height: 0.9;
+}
+
+.logo-top {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.logo-bottom {
+  font-size: 14px;
+  letter-spacing: 4px;
+  position: relative;
+  left: -2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.join-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e8c77b, #caa14d);
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 13px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 8px 28px rgba(214,180,106,0.45);
+}
+
+.hamburger {
+  display: none;
+  font-size: 22px;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+/* Mobile nav drawer */
+.nav-links.show {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  padding: 24px;
+  background: rgba(0,0,0,0.95);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  height: 100vh;
+  background: url("assets/IMG_0594.jpg") center/cover;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), #000);
+}
+
+.hero-content {
+  position: relative;
+  height: 100%;
+  padding-left: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+.tagline {
+  margin-top: 8px;
+  letter-spacing: 4px;
+}
+
+/* HERO BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.btn-gold {
+  padding: 14px 34px;
+  border-radius: 999px;
+  background: var(--gold);
+  border: none;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(214,180,106,0.45);
+}
+
+.btn-outline {
+  padding: 14px 34px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(214,180,106,0.35);
+}
+
+/* =====================================================
+   GLOBAL SECTION SPACING
+===================================================== */
+
+section {
+  padding: 120px 80px;
+}
+
+/* =====================================================
+   REALM (MATCHES SCREENSHOT)
+===================================================== */
+
+.realm {
+  position: relative;
+  background: url("assets/photo-1578662996442-48f60103fc96.avif") center/cover;
+  text-align: center;
+}
+
+.realm h2 {
+  margin: 24px 0;
+}
+
+.realm-left,
+.realm-right {
+  position: absolute;
+  top: 40px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.realm-left { left: 40px; }
+.realm-right { right: 40px; }
+
+.realm-sub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* =====================================================
+   SUFI & CLASSIC
+===================================================== */
+
+.sufi {
+  text-align: center;
+}
+
+.sufi h2 {
+  margin-bottom: 60px;
+}
+
+.sufi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.sufi-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.4s ease;
+}
+
+.sufi-card:hover {
+  transform: translateY(-6px);
+}
+
+.sufi-card img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.sufi-card span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* =====================================================
+   JAM FUSION (FINAL, MATCHING SCREENSHOTS)
+===================================================== */
+
+.jam-fusion {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Main image */
+.jam-main img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+/* Progress bar */
+.jam-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.jam-progress span {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 40%,
+    rgba(255,255,255,0.2) 40%
+  );
+}
+
+.jam-progress label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+/* Right content */
+.jam-content p {
+  max-width: 480px;
+  margin: 20px 0 30px;
+}
+
+/* Gallery */
+.jam-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.jam-gallery img {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+.jam-gallery img:last-child {
+  grid-column: span 2;
+}
+
+/* =====================================================
+   STUDIO SPLIT
+===================================================== */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.split img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+/* =====================================================
+   PRICING
+===================================================== */
+
+.pricing-bg {
+  position: relative;
+  background: url("assets/jam.jpg") center/cover;
+}
+
+.pricing-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+}
+
+.pricing-inner {
+  position: relative;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.pricing-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.pricing-card.highlight {
+  box-shadow: 0 0 60px rgba(214,180,106,0.2);
+}
+
+.price {
+  font-size: 36px;
+  color: var(--gold);
+}
+
+.per {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+/* =====================================================
+   PROMOTION STRATEGY
+===================================================== */
+
+.promo {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.promo-phone img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 30px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+}
+
+.promo-text ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.promo-text li {
+  margin-bottom: 12px;
+}
+
+.promo-text li::before {
+  content: "✔ ";
+  color: var(--gold);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  section {
+    padding: 80px 24px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hero-content {
+    padding-left: 24px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .sufi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jam-fusion,
+  .split,
+  .promo {
+    grid-template-columns: 1fr;
+  }
+
+  /* H1 above images on mobile */
+  .jam-content {
+    order: 2;
+  }
+}
